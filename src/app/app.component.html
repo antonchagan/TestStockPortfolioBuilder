@@ -1,0 +1,27 @@
+<form #test = "ngForm" >
+  <p-listbox [options]="symbols" [(ngModel)]="selectedCities" multiple="multiple" checkbox="checkbox" filter="filter" optionLabel="name" name="test">
+    <p-header>
+      <i class="fa fa-car"></i>
+      symbol
+    </p-header>
+  </p-listbox>
+  <button pButton type="button" label="Click" (click)="handleClick($event)"></button>
+</form>
+<table id="tableSortExample" mdbTable class="z-depth-1">
+  <thead>
+  <tr>
+    <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" [mdbTableSort]="elements" [sortBy]="headElements[i]">{{head | titlecase}}
+      <mdb-icon fas icon="sort"></mdb-icon>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let el of elements; let i = index">
+    <th scope="row">{{el.symbol}}</th>
+    <td>{{el.price}}</td>
+    <td>{{el.size}}</td>
+    <td>{{el.time | date:'medium'}}</td>
+    <td><button pButton type="button" label="Delete" class="ui-button-danger" (click)="deleteClick(el)"></button></td>
+  </tr>
+  </tbody>
+</table>
